@@ -15,10 +15,9 @@ namespace ASP_Homework_1.Controllers
         [HttpPost]
         public IActionResult Index(User user)
         {
-            var messanger = new MessangerService(new DebugMessageFactory(), new DebugClient(new DebugSettings()
+            var messanger = new MessangerService(new FeedbackMessageFactory(), new FeedbackClient(new FeedbackSettings()
             {
-                Host = "smtp.example.com",
-                Port = 25
+                Type = FeedbackSettings.FeedbackType.Thanks
             }));
 
             messanger.SendMessage(user);

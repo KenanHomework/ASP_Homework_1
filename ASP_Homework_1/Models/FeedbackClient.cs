@@ -1,13 +1,14 @@
 ﻿using ASP_Homework_1.Interfaces;
 using System.Diagnostics;
+using System.Text;
 
 namespace ASP_Homework_1.Models;
 
-public class DebugClient : IClient
+public class FeedbackClient : IClient
 {
-    private readonly DebugSettings _settings;
+    private readonly FeedbackSettings _settings;
 
-    public DebugClient(DebugSettings settings)
+    public FeedbackClient(FeedbackSettings settings)
     {
         _settings = settings;
     }
@@ -20,6 +21,9 @@ public class DebugClient : IClient
         //if (!_settings.Configure(ref listener))
         //    return;
 
-        Debug.WriteLine(message.Message());
+        object messageString = "";
+        _settings.Configure(ref messageString);
+        messageString += message.Message();
+        Debug.WriteLine(messageString);
     }
 }

@@ -2,11 +2,11 @@
 
 namespace ASP_Homework_1.Models
 {
-    public class DebugMessage : IMessage
+    public class FeedbackMessage : IMessage
     {
-        public DebugMessage() { }
+        public FeedbackMessage() { }
 
-        public DebugMessage(User user) => User = user ?? throw new ArgumentNullException(nameof(user));
+        public FeedbackMessage(User user) => User = user ?? throw new ArgumentNullException(nameof(user));
 
 
         public User User { get; set; } = new User();
